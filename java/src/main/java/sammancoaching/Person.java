@@ -1,5 +1,15 @@
 package sammancoaching;
-
+/**
+ * Regeln & Ablauf:
+ *
+ * Rollen: Typist, Navigator, Mob
+ *
+ * Ablauf:
+ * Wechsel alle 2 min.
+ * Wenn alle durch sind, Mini-Retro, Mini-Planning
+ *
+ * mob start / next
+**/
 public class Person {
     public static final int USER_ROLE_ADMIN = 0;
     public static final int USER_ROLE_ENGINEER = 1;
