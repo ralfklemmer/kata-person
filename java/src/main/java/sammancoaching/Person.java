@@ -22,16 +22,24 @@ public class Person {
         this.role = role;
     }
 
-    public void setSwedishPersonalNumber(String swedishPersonalNumber) {
-        swedishPersonalNumber = swedishPersonalNumber.replace("-", "");
-        if (swedishPersonalNumber.length() != 12)
-            throw new IllegalArgumentException("invalid personal number " + swedishPersonalNumber);
-        this.swedishPersonalNumber = swedishPersonalNumber;
-    }
 
-    public int birthYear() {
-        String year = swedishPersonalNumber.substring(0, 4);
-        return Integer.parseInt(year);
+
+    class SwedishPersonalNumber {
+
+        private String swedishPersonalNumber;
+
+
+        public void setSwedishPersonalNumber(String swedishPersonalNumber) {
+            swedishPersonalNumber = swedishPersonalNumber.replace("-", "");
+            if (swedishPersonalNumber.length() != 12)
+                throw new IllegalArgumentException("invalid personal number " + swedishPersonalNumber);
+            this.swedishPersonalNumber = swedishPersonalNumber;
+        }
+
+        public int birthYear() {
+            String year = swedishPersonalNumber.substring(0, 4);
+            return Integer.parseInt(year);
+        }
     }
 
     public String countryCode() {
