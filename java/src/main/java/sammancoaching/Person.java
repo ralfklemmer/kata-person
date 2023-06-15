@@ -1,15 +1,5 @@
 package sammancoaching;
-/**
- * Regeln & Ablauf:
- *
- * Rollen: Typist, Navigator, Mob
- *
- * Ablauf:
- * Wechsel alle 2 min.
- * Wenn alle durch sind, Mini-Retro, Mini-Planning
- *
- * mob start / next
-**/
+
 public class Person {
     public static final int USER_ROLE_ADMIN = 0;
     public static final int USER_ROLE_ENGINEER = 1;
@@ -18,16 +8,12 @@ public class Person {
 
     private int role;
 	private String swedishPersonalNumber;
-    private String phoneNumber;
+    private final String phoneNumber;
 
     public Person(int role, String swedishPersonalNumber, String phoneNumber) {
         setRole(role);
         setSwedishPersonalNumber(swedishPersonalNumber);
         this.phoneNumber = phoneNumber;
-    }
-
-    public int getRole() {
-        return role;
     }
 
     public void setRole(int role) {
@@ -36,23 +22,11 @@ public class Person {
         this.role = role;
     }
 
-    public String getSwedishPersonalNumber() {
-        return swedishPersonalNumber;
-    }
-
     public void setSwedishPersonalNumber(String swedishPersonalNumber) {
         swedishPersonalNumber = swedishPersonalNumber.replace("-", "");
         if (swedishPersonalNumber.length() != 12)
             throw new IllegalArgumentException("invalid personal number " + swedishPersonalNumber);
         this.swedishPersonalNumber = swedishPersonalNumber;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public int birthYear() {
