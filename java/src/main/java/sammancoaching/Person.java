@@ -7,12 +7,12 @@ public class Person {
     public static final int USER_ROLE_SALES = 3;
 
     private int role;
-	private String swedishPersonalNumber;
+	private final SwedishPersonalNumber swedishPersonalNumber;
     private final String phoneNumber;
 
     public Person(int role, String swedishPersonalNumber, String phoneNumber) {
         setRole(role);
-        setSwedishPersonalNumber(swedishPersonalNumber);
+        this.swedishPersonalNumber = new SwedishPersonalNumber(swedishPersonalNumber);
         this.phoneNumber = phoneNumber;
     }
 
@@ -28,6 +28,9 @@ public class Person {
 
         private String swedishPersonalNumber;
 
+        public SwedishPersonalNumber(String swedishPersonalNumber) {
+            setSwedishPersonalNumber(swedishPersonalNumber);
+        }
 
         public void setSwedishPersonalNumber(String swedishPersonalNumber) {
             swedishPersonalNumber = swedishPersonalNumber.replace("-", "");
