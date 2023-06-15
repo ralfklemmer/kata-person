@@ -7,7 +7,10 @@ public class Person {
     public static final int USER_ROLE_SALES = 3;
 
     private int role;
-	private final SwedishPersonalNumber swedishPersonalNumber;
+
+
+
+    private final SwedishPersonalNumber swedishPersonalNumber;
     private final String phoneNumber;
 
     public Person(int role, String swedishPersonalNumber, String phoneNumber) {
@@ -21,7 +24,6 @@ public class Person {
             throw new IllegalArgumentException("illegal role" + role);
         this.role = role;
     }
-
 
 
     class SwedishPersonalNumber {
@@ -58,5 +60,9 @@ public class Person {
 
     public boolean canDeleteUsers() {
         return this.role == Person.USER_ROLE_MANAGER || this.role == Person.USER_ROLE_ADMIN;
+    }
+
+    public SwedishPersonalNumber getSwedishPersonalNumber() {
+        return swedishPersonalNumber;
     }
 }

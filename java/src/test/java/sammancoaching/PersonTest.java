@@ -11,7 +11,7 @@ public class PersonTest {
     @Test
     void birthYear() {
         Person person = new Person(role, swedishPersonalNumber, phoneNumber);
-        assertEquals(1951, person.birthYear());
+        assertEquals(1951, person.getSwedishPersonalNumber().birthYear());
     }
     @Test
     void countryCode() {
