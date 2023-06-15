@@ -9,7 +9,6 @@ public class Person {
     private int role;
 
 
-
     private final SwedishPersonalNumber swedishPersonalNumber;
     private final String phoneNumber;
 
@@ -25,34 +24,17 @@ public class Person {
         this.role = role;
     }
 
-
-    class SwedishPersonalNumber {
-
-        private String swedishPersonalNumber;
-
-        public SwedishPersonalNumber(String swedishPersonalNumber) {
-            setSwedishPersonalNumber(swedishPersonalNumber);
-        }
-
-        public void setSwedishPersonalNumber(String swedishPersonalNumber) {
-            swedishPersonalNumber = swedishPersonalNumber.replace("-", "");
-            if (swedishPersonalNumber.length() != 12)
-                throw new IllegalArgumentException("invalid personal number " + swedishPersonalNumber);
-            this.swedishPersonalNumber = swedishPersonalNumber;
-        }
-
-        public int birthYear() {
-            String year = swedishPersonalNumber.substring(0, 4);
-            return Integer.parseInt(year);
-        }
+    public int getBirthYear() {
+        return getSwedishPersonalNumber().birthYear();
     }
+
 
     public String countryCode() {
         String code = "";
         if (phoneNumber.startsWith("00"))
             code = phoneNumber.substring(2, 4);
         else if (phoneNumber.startsWith("+"))
-            code = phoneNumber.substring(1,3);
+            code = phoneNumber.substring(1, 3);
         if (!code.isEmpty())
             return "+" + code;
         return "";
